@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
 
 class AdminController extends Controller
 {
@@ -17,6 +19,45 @@ class AdminController extends Controller
 
 
     // Auth Function
+
+    public function showloginPage(){
+       
+        return view('admin.login.login');
+
+    }
+    
+    public function verifyloginPage(Request $request){
+    //    dd($request->all());
+        $validate= Validator::make($request->all(),[
+            'name'     => 'required| alpha', // Name must only contain alphabets
+            'email'    => 'required| email', // Email must contain '@'
+            'password' => 'required| min:5', 
+
+
+        ]);
+         // If validation fails, redirect back with error messages
+        if ($validate->fails()){
+            $firsterror=$validate->errors()->all()[0];
+            return redirect()->back()->withError($firsterror)->withInput();
+        }
+        $data=$request->all('email', 'password');
+        $verify=Auth::attempt($data);
+        if($verify)
+        {
+            //  dd($verify);
+            return redirect()->to('/admin/dashboard');
+        }
+        else{
+            return redirect()->back()->withError('Invalid Email or Password')->withInput();
+        }
+
+
+        
+
+
+    }
+    
+
 
     public function showRegisterPage(){
 

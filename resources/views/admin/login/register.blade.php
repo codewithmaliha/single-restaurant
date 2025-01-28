@@ -51,32 +51,32 @@
                             @csrf
                             <div class="d-flex align-items-center justify-content-between mb-3">
                                 <a href="index.html" class="">
-                                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>Shinwari</h3>
+                                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>Salt n pepper</h3>
                                 </a>
                                 <small>Delivery Boy</small>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingText" placeholder="Enter full name" name="name">
+                                <input type="text" value="{{ old('name') }}" class="form-control" id="floatingText" placeholder="Enter full name" name="name">
                                 <label for="floatingText">Full Name</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="floatingText" placeholder="Enter phone number" name="phone">
+                                <input type="number" value="{{ old('phone') }}" class="form-control" id="floatingText" placeholder="Enter phone number" name="phone">
                                 <label for="floatingText">Phone</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+                                <input type="email" value="{{ old('email') }}" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
                                 <label for="floatingInput">Email address</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingText" placeholder="Enter Address" name="address">
+                                <input type="text" value="{{ old('adress') }}" class="form-control" id="floatingText" placeholder="Enter Address" name="address">
                                 <label for="floatingText">Address</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Enter Password" name="password">
+                                <input type="password" value="{{ old('password') }}" class="form-control" id="floatingPassword" placeholder="Enter Password" name="password">
                                 <label for="floatingPassword">Password</label>
                             </div>
                             <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
-                            <p class="text-center mb-0">Already have an Account? <a href="">Sign In</a></p>
+                            <p class="text-center mb-0">Already have an Account? <a href="{{ url('login') }}">Log in</a></p>
                         </form>
                     </div>
                 </div>

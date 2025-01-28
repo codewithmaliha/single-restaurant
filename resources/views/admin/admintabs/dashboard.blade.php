@@ -1,7 +1,10 @@
 
-@extends('admin.layouts.main')
-@section('main-container')
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    @include('admin.layouts.header')
+</head>
 
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
@@ -14,11 +17,21 @@
         <!-- Spinner End -->
 
 
-       
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3">
+
+           @include('admin.layouts.sidebar')
+
+
+        </div>
+        <!-- Sidebar End -->
+
 
         <!-- Content Start -->
         <div class="content">
-         
+            <!-- Navbar Start -->
+           @include('admin.layouts.navbar')
+            <!-- Navbar End -->
 
 
             <!-- Sale & Revenue Start -->
@@ -80,7 +93,7 @@
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light text-center rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Sales & Revenue</h6>
+                                <h6 class="mb-0">Salse & Revenue</h6>
                                 <a href="">Show All</a>
                             </div>
                             <canvas id="salse-revenue"></canvas>
@@ -95,7 +108,7 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Sales</h6>
+                        <h6 class="mb-0">Recent Salse</h6>
                         <a href="">Show All</a>
                     </div>
                     <div class="table-responsive">
@@ -286,5 +299,11 @@
             </div>
             <!-- Widgets End -->
 
-@endsection
-           
+
+            <!-- Footer Start -->
+           @include('admin.layouts.footer')
+
+
+</body>
+
+</html>
