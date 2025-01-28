@@ -26,13 +26,15 @@ Route::group(['prefix'=>'admin'],function (){
     Route::post('/verify-login',[AdminController::class,'verifyloginPage']);
     Route::get('/register',[AdminController::class,'showRegisterPage']);
     Route::post('/store-register-info',[AdminController::class,'storeRegisterInfo']);
-    // Route::get('/login',function(){
-    //     if(Auth::user()->role == 'dBoy'){
-    //         return redirect()->route('admin.admintabs.dashboard');
-    //     }
-    //     // Create a login page Maliha NS REMOVE DD
-    //     dd('Yoo! I am inside Login Page.');
-    // })->name('login');
+
+    Route::get('/logins',function(){
+        if(Auth::user()){
+            return redirect()->route('admin.admintabs.dashboard');
+        }else{
+            // Create a login page Maliha NS REMOVE DD
+            return redirect()->to('/login');
+        }
+    })->name('login');
 
 
 
@@ -44,13 +46,9 @@ Route::group(['prefix'=>'admin'],function (){
         Route::get('show-menu', [MenuController::class,'showmenu'])->name('admin.addmenu');
         Route::post('store-menu', [MenuController::class,'storemenu']);
 
-
     });
 
 });
-
-
-
 
 
 route::get('/' ,[HomeController::class, 'index']);

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('category');
             $table->string('quantity');
             $table->string('price');
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@ use App\Models\Menu;
 
 class MenuController extends Controller
 {
-    
+
     public function menu()
     {
         $menu= Menu::all();
@@ -20,20 +20,22 @@ class MenuController extends Controller
     {
         $menu= Menu::find($id);
         return view('admin.admintabs.editmenu', compact('menu'));
-        
 
     }
     public function showmenu()
     {
-    
+
         return view('admin.admintabs.addmenu');
 
     }
-    
-    
-    
+
+
+
     public function storemenu(Request $request)
-    { 
+    {
+
+        // add validation before saving record in database
+
         //  dd($request->all());
         $menu = new Menu();
         $menu -> name= $request-> name;
