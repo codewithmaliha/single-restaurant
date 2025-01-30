@@ -8,12 +8,12 @@
         <form action="{{ url('/admin/store-orders') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label>User ID</label>
+                <label>Display Menu Items Dropdown</label>
                 <input type="number" name="user_id" class="form-control" required>
             </div>
-            
+
             <div class="mb-3">
-                <label>Total Amount</label>
+                <label>Quantity</label>
                 <input type="number" name="total_amount" step="0.01" class="form-control" required>
             </div>
             <div class="mb-3">

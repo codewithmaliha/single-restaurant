@@ -14,6 +14,7 @@ class AdminController extends Controller
 {
     public function index()
     {
+       
         return view('admin.admintabs.dashboard');
     }
 
@@ -21,17 +22,17 @@ class AdminController extends Controller
     // Auth Function
 
     public function showloginPage(){
-       
+
         return view('admin.login.login');
 
     }
-    
+
     public function verifyloginPage(Request $request){
     //    dd($request->all());
         $validate= Validator::make($request->all(),[
             'name'     => 'required| alpha', // Name must only contain alphabets
             'email'    => 'required| email', // Email must contain '@'
-            'password' => 'required| min:5', 
+            'password' => 'required| min:5',
 
 
         ]);
@@ -52,11 +53,11 @@ class AdminController extends Controller
         }
 
 
-        
+
 
 
     }
-    
+
 
 
     public function showRegisterPage(){

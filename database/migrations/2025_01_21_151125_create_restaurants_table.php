@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('owner_id');
             $table->text('address');
             $table->string('phone');
-            $table->string('rating');
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }
