@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('restaurant_id');
             $table->string('total_amount');
-            $table->string('status');
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }

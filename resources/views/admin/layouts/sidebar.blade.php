@@ -26,7 +26,7 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Order</a>
                 <div class="dropdown-menu bg-transparent border-0">
-                    <a href="button.html" class="dropdown-item">Order List</a>
+                    <a href="{{url('admin/orders-list')}}" class="dropdown-item">Order List</a>
                     <a href="element.html" class="dropdown-item">Special Order List</a>
                 </div>
             </div>

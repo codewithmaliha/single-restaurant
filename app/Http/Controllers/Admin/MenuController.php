@@ -35,7 +35,7 @@ class MenuController extends Controller
     {
 
         // add validation before saving record in database
-
+        
         //  dd($request->all());
         $menu = new Menu();
         $menu -> name= $request-> name;
@@ -45,4 +45,22 @@ class MenuController extends Controller
         $menu->save();
     return redirect()->route('admin.dashboard');
     }
+
+    public function update(Request $request, $id)
+    {
+        $menu = Menu::find($id);
+        $menu -> name= $request-> name;
+        $menu -> category= $request-> category;
+        $menu -> quantity= $request-> quantity;
+        $menu -> price= $request-> price;
+        $menu->save();
+    return redirect()->to('admin/menu');
+}
+
+    Public function destroy($id)
+    {
+        Menu::destroy($id);
+        return redirect()->to('admin/menu');
+    }
+
 }
