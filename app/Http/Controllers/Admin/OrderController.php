@@ -13,36 +13,39 @@ class OrderController extends Controller
 {
     Public function orderlist()
     {
-        $orders = orders::all();
+         $orders = orders::all();
 
         foreach($orders as $item){
-            $user_nameeeee = User::where('id',$item->user_id)->first('name');
-            $item->user_name = $user_nameeeee->name;
+            // fetch User name
+            $user_name = User::where('id',$item->user_id)->first('name');
+            $item->user_name = $user_name->name;
+
+            // fetch Menu Name
+            $menu_name = Menu::where('id',$item->menu_item_id)->first('name');
+            $item->menu_name = $menu_name->name;
         }
 
-        $menu= Menu::get(['name','id']); /* for dropdown inside create order */
         return view('admin.admintabs.orders.orderslist', get_defined_vars());
     }
     Public function create()
     {
-        return view('admin.admintabs.orders.createorders');
+        $menus= Menu::where('status',1)->get(['name','id']); /* for dropdown inside create order */
+        return view('admin.admintabs.orders.createorders', get_defined_vars());
     }
 
 
     Public function storeorder(Request $request)
     {
 
-        // $menu_id = $request->menu_id;
-        // $Menu_Price_obj = Menu::where('id',$menu_id)->first('price');
-        // {"price":"70"}
-        // $Calculate_Price = $Menu_Price_obj * $request->qty;
+        $menu_id = $request->menu_id;
+        $Menu_price = Menu::where('id',$menu_id)->first('price');
+        $order_amount = $Menu_price->price * $request->qty;
 
-
-        //  dd($request->all());
          $orders= new orders();
-         $orders->user_id=Auth::user()->id;
-         $orders->total_amount=$request->total_amount;
-        //  $orders->menu_id=$request->menu_id;
+         $orders->user_id = Auth::user()->id;
+         $orders->menu_item_id = $menu_id;
+         $orders->quantity  = $request->qty;
+         $orders->price = $order_amount;
          $orders->save();
 
          return redirect()->to('admin/orders-list');

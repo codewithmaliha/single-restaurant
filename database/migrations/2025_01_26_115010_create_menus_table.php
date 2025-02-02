@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('category');
-            $table->string('quantity');
             $table->string('price');
+            $table->string('unit');
             $table->string('status')->default(1);
             $table->timestamps();
         });

@@ -5,7 +5,7 @@
 <div class="container-fluid pt-4 px-4">
     <div id="formContainer" class="form-container mt-3">
         <div class="table-responsive">
-         
+
             <div class="d-flex justify-content-between align-items-center">
                 <h2>Orders List</h2>
                 <a href="{{ url('admin/create-orders') }}" class="btn btn-primary">Create Order</a>
@@ -14,11 +14,10 @@
             <table class="table">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Order By</th>
                             <th>Menu</th>
-                            <th>Total Amount</th>
                             <th>Quantity</th>
+                            <th>Total Amount</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -26,11 +25,16 @@
                     <tbody>
                         @foreach($orders as $order)
                             <tr>
-                                <td>{{ $order->id }}</td>
-                                <td>{{ $order->menu_items }}</td>
+                                <td>{{ $order->user_name }}</td>
+                                <td>{{ $order->menu_name }}</td>
 
-                                <td>{{ $order->total_amount }}</td>
-                                <td>{{ $order->status }}</td>
+                                <td>{{ $order->quantity }}</td>
+                                <td>{{ $order->price }}</td>
+                                <td>
+                                    @if($order->status == 1)
+                                        <span class="badge bg-success">Preparing</span>
+                                    @endif
+                                </td>
                                 <td>
                                     {{-- <a href="{{ url('orders.', $order->id) }}" class="btn btn-info btn-sm">View</a> --}}
                                     <a href="{{ url('admin/edit-orders', $order->id) }}" class="btn btn-primary">Edit</a>

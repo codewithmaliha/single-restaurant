@@ -33,17 +33,16 @@ class MenuController extends Controller
 
     public function storemenu(Request $request)
     {
-
         // add validation before saving record in database
-        
+
         //  dd($request->all());
         $menu = new Menu();
-        $menu -> name= $request-> name;
-        $menu -> category= $request-> category;
-        $menu -> quantity= $request-> quantity;
-        $menu -> price= $request-> price;
+        $menu ->name= $request-> name;
+        $menu ->category= $request-> category;
+        $menu ->price= $request-> price;
+        $menu ->unit = $request-> unit;
         $menu->save();
-    return redirect()->route('admin.dashboard');
+        return redirect()->to('admin/menu');
     }
 
     public function update(Request $request, $id)

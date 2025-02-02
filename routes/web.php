@@ -48,10 +48,10 @@ Route::group(['prefix'=>'admin'],function (){
         Route::get('delete/{id}', [MenuController::class,'destroy']);
         Route::get('show-menu', [MenuController::class,'showmenu'])->name('admin.addmenu');
         Route::post('store-menu', [MenuController::class,'storemenu']);
-        
-        
+
+
         // orders routes
-        
+
         Route::get('orders-list', [OrderController::class,'orderlist'])->name('admin.orderlist');
         Route::get('create-orders', [OrderController::class,'create']);
         Route::post('store-orders', [OrderController::class,'storeorder']);

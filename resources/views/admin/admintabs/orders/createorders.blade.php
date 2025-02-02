@@ -4,27 +4,27 @@
 @section('main-container')
 
 <div class="container-fluid pt-4 px-4">
-    <div id="formContainer" class="form-container mt-3">
+    <div id="formContainer" class="form-container mt-3" style="width:20rem">
         <form action="{{ url('/admin/store-orders') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label>Display Menu Items Dropdown</label>
-                <input type="number" name="user_id" class="form-control" required>
+                <label for="cars">Choose a Menu:</label>
+
+                <select class="form-control" name="menu_id">
+                    @foreach ($menus as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+
             </div>
 
             <div class="mb-3">
                 <label>Quantity</label>
-                <input type="number" name="total_amount" step="0.01" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label>Status</label>
-                <select name="status" class="form-control">
-                    <option value="pending">Pending</option>
-                    <option value="processing">Processing</option>
-                    <option value="completed">Completed</option>
-                </select>
+                <input type="number" name="qty"  class="form-control" required>
             </div>
             <button type="submit" class="btn btn-success">Save Order</button>
         </form>
 </div>
+
+
 @endsection
