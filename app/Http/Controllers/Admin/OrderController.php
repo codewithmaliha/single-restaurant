@@ -60,7 +60,7 @@ class OrderController extends Controller
         {
             //  dd($request->all());
             $orders= orders::find($id);
-            $orders->user_id=$request->user_id;
+            $orders->menu_items=$request->menu_items;
             $orders->total_amount=$request->total_amount;
             $orders->save();
 

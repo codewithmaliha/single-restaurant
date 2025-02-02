@@ -5,15 +5,20 @@
 <div class="container-fluid pt-4 px-4">
     <div id="formContainer" class="form-container mt-3">
         <div class="table-responsive">
-            <h2>Orders List</h2>
+         
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Orders List</h2>
+                <a href="{{ url('admin/create-orders') }}" class="btn btn-primary">Create Order</a>
+            </div>
 
-
-                <table class="table">
+            <table class="table">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Order By</th>
+                            <th>Menu</th>
                             <th>Total Amount</th>
+                            <th>Quantity</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -22,7 +27,7 @@
                         @foreach($orders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>
-                                <td>{{ $order->user_name }}</td>
+                                <td>{{ $order->menu_items }}</td>
 
                                 <td>{{ $order->total_amount }}</td>
                                 <td>{{ $order->status }}</td>

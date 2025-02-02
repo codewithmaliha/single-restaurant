@@ -10,6 +10,7 @@
                         @csrf
                        
                         <!-- Common Fields (shown when a category is selected) -->
+                        
                         <div class="mb-3">
                             <label for="user_id" class="form-label">User ID</label>
                             <input type="text" class="form-control" id="user_id" name="user_id"
