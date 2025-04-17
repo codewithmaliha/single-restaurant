@@ -58,6 +58,7 @@ Route::group(['prefix'=>'admin'],function (){
         Route::get('edit-orders/{id}', [OrderController::class,'editorder']);
         Route::post('edit-orders/{id}', [OrderController::class,'updateorder']);
         Route::get('delete-order/{id}', [OrderController::class,'destroy']);
+       
 
     });
 

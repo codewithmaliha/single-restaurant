@@ -16,7 +16,7 @@
         <div class="navbar-nav w-100">
             <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Menu</a>
+                <a  class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Menu</a>
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="{{ url('admin/menu') }}" class="dropdown-item">Menu List</a>
                     <a href="typography.html" class="dropdown-item">Favorite List</a>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Order</a>
+                <a  class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Order</a>
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="{{url('admin/orders-list')}}" class="dropdown-item">Order List</a>
                     <a href="element.html" class="dropdown-item">Special Order List</a>

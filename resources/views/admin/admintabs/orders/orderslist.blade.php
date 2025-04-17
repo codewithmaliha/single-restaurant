@@ -32,7 +32,8 @@
                                 <td>{{ $order->price }}</td>
                                 <td>
                                     @if($order->status == 1)
-                                        <span class="badge bg-success">Preparing</span>
+                                  
+                                       
                                     @endif
                                 </td>
                                 <td>
